@@ -1,0 +1,175 @@
+html body{
+    overflow: hidden
+}
+
+@media (orientation: portrait) {
+   body {
+        padding: 20;
+        background-image: url("./images/pixelbg.png");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 100;
+        display: flex;
+        justify-content: center; /* Horizontal centering */
+        align-items: center;     /* Vertical centering */
+        min-height: 100vh;       /* Uses 100% of the viewport height */
+        } 
+}
+
+@media (orientation: landscape) {
+   body {
+        padding: 20;
+        background-image: url("./images/pixelbg.png");
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 80;
+        display: flex;
+        justify-content: center; /* Horizontal centering */
+        align-items: center;     /* Vertical centering */
+        min-height: 100vh;       /* Uses 100% of the viewport height */
+   }
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor:pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform:scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope{
+    width: 250px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+#letter-container{
+    display: none;
+    position:fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window{
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("./images/window.PNG");
+    background-size: 700px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 30px;
+    margin:0;
+    font-family: "Pixelify Sans", sans-serif;
+    gap: 1;
+    padding-bottom: 20px;
+    color: #25213f;
+}
+
+.mail {
+    font-size: 60px;
+    font-family: "Pixelify Sans", sans-serif;
+    color: rgb(255, 245, 221);
+
+}
+
+/* Cat */
+
+.cat {
+    width: 200px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.no-wrapper{
+    position:relative;
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+width: 120px;
+height: auto;
+display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.no-btn {
+    z-index: 1;
+    position: relative;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+
+.final-text{
+display: none;             /* Starts hidden */
+    position: fixed;           /* Breaks free from container restrictions */
+    top: 50%;                  /* Move down 50% from the top of the screen */
+    left: 50%;                 /* Move right 50% from the left of the screen */
+    transform: translate(-50%, -50%); /* Shifts it perfectly into the true center */
+    
+    width: 600px;                /* Keep your sizing */
+    max-width: 600px;
+    height: auto;
+    z-index: 999;              /* Makes sure it sits on top of everything else */
+    border-radius: 8px;
+}
